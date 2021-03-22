@@ -36,6 +36,15 @@ const routes = {
         response.end();
     }
 }
+
+const handleError = (response) => {
+    return error => {
+        response.writeHead(500, DEFAULT_HEADER);
+        response.write(JSON.stringify({ error: 'Internal Server Error!!!' }));
+        response.end();
+    };
+}
+
 const handler = (request, response) => {
     const { url, method } = request;
     const [first, route, id] = url.split('/');
@@ -48,7 +57,7 @@ const handler = (request, response) => {
 
     const chosen = routes[key] || routes.default;
 
-    return chosen(request, response);
+    return chosen(request, response).catch(handleError(response));
 }
 
 http.createServer(handler)

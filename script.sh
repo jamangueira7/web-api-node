@@ -13,3 +13,10 @@ echo '\n\n creating batman'
 CREATE=$(curl --silent -X POST \
     --data-binary '{"name": "Batman","age": 200,"power": "Rich"}' \
     localhost:3000/heroes)
+
+echo $CREATE
+
+ID=$(echo $CREATE | jq .id)
+
+echo '\n\n requesting batman'
+curl --silent localhost:3000/heroes/$ID
