@@ -3,6 +3,11 @@ const PORT = 3000;
 const DEFAULT_HEADER = { 'Content-Type' : 'application/json' };
 
 const routes = {
+    '/hero:get': async (request, response) => {
+        const { id } = request.queryString;
+
+        return response.end();
+    },
     default:  (request, response) => {
         response.write('hello!');
         response.end();
@@ -17,7 +22,10 @@ const handler = (request, response) => {
     const key = `/${route}:${method.toLowerCase()}`;
 
     response.writeHead(200, DEFAULT_HEADER);
-    response.end();
+
+    const chosen = routes[key] || routes.default;
+
+    return chosen(request, response);
 }
 
 http.createServer(handler)
