@@ -1,4 +1,4 @@
-const HeroRepository = require('./../repotitories/heroRepository');
+const HeroRepository = require('../repositories/heroRepository');
 const HeroService = require('./../services/heroService');
 
 const { join } = require('path');

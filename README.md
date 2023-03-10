@@ -1,6 +1,7 @@
 <p align="center">
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
   <a href="#-como-rodar">Como rodar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-rotas">Rotas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;
 </p>
 
@@ -25,16 +26,63 @@ Projeto de uma API sem nenhuma ferramente para auxiliar o Node.js.
 Projeto do canal [Erick Wendel](https://www.youtube.com/watch?v=NxHY14rMPvc).
 
 Testes: 
-<p align="center">
-  <img alt="animation" src=".github/imagem1.PNG" width="100%">
-</p>
+![img.png](.github%2Fimg.png)
 
 ## 🚀 Como Rodar
 
 - Clone o projeto.
 - npm install.
-- 'npm run dev' para iniciar o projeto.
-- 'npm test' para rodar os test simulados com bash.
+- `npm run dev` para iniciar o projeto.
+- `npm test` para rodar os test simulados com bash.
+- Instalar o Jq: https://stedolan.github.io/jq/download/
+
+## ↗ Rotas
+
+- **`GET /heroes`**: Rota para returnar todos o heróis
+
+Retorna:
+```
+{
+    "results": [
+        {
+            "id": 1,
+            "name": "XuxaDaSilva",
+            "age": 100,
+            "power": "Ancient"
+        },
+        {
+            "id": 1616374863972,
+            "name": "Batman",
+            "age": 200,
+            "power": "Rich"
+        }
+    ]
+}
+```
+
+- **`GET /heroes/$ID`**: Rota para returnar um heróis
+
+Retorna:
+```
+{
+    "results": {
+        "id": 1678469127564,
+        "name": "Batman",
+        "age": 200,
+        "power": "Rich"
+    }
+}
+```
+
+- **`POST /heroes`**: Rota para cadastrar todos
+
+Retorna:
+```
+{
+   "success":"User created with success!",
+   "id":1678470035678
+}
+```
 
 ## 🤔 Como contribuir
 

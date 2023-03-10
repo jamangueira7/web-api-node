@@ -1,8 +1,9 @@
 const http = require('http');
+const Hero = require('./entities/hero');
+const HeroFactory = require('./factories/heroFactory');
+
 const PORT = 3000;
 const DEFAULT_HEADER = { 'Content-Type' : 'application/json' };
-const HeroFactory = require('./factories/heroFactory');
-const Hero = require('./entities/hero');
 const heroService = HeroFactory.generateInstance();
 
 const routes = {
@@ -62,9 +63,9 @@ const handler = (request, response) => {
 
     const key = `/${route}:${method.toLowerCase()}`;
 
-    const chosen = routes[key] || routes.default;
-
     response.writeHead(200, DEFAULT_HEADER);
+
+    const chosen = routes[key] || routes.default;
 
     return chosen(request, response).catch(handleError(response));
 }

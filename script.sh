@@ -1,4 +1,5 @@
-echo '\n\n requesting all heroes';
+echo '\n #### Inicio do test ####'
+echo '\n requesting all heroes';
 curl localhost:3000/heroes
 
 echo '\n\n requesting flash';
@@ -16,7 +17,11 @@ CREATE=$(curl --silent -X POST \
 
 echo $CREATE
 
+sleep 1s
+
 ID=$(echo $CREATE | jq .id)
 
 echo '\n\n requesting batman'
-curl --silent localhost:3000/heroes/$ID
+curl localhost:3000/heroes/$ID
+
+echo '\n\n #### Final do test ####'
