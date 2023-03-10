@@ -27,6 +27,8 @@ Projeto do canal [Erick Wendel](https://www.youtube.com/watch?v=NxHY14rMPvc).
 
 Testes: 
 ![img.png](.github%2Fimg.png)
+![img_1.png](.github%2Fimg_1.png)
+![img_2.png](.github%2Fimg_2.png)
 
 ## 🚀 Como Rodar
 
@@ -76,11 +78,30 @@ Retorna:
 
 - **`POST /heroes`**: Rota para cadastrar todos
 
+Envia:
+```
+{
+    "name": "Batman",
+    "age": 200,
+    "power": "Rich"
+}
+```
+
 Retorna:
 ```
 {
    "success":"User created with success!",
    "id":1678470035678
+}
+```
+
+- **`GET /`**: 404
+
+
+Retorna:
+```
+{ 
+    msg: 'Hello! Route does not exist!' 
 }
 ```
 

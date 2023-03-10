@@ -4,6 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "test:mocha": "npx mocha -w src/*.test.js",
+    "test:cov": "npx nyc npx mocha src/*.test.js",
     "test": "sh script.sh",
     "start": "node src/index.js",
     "dev": "npx nodemon src/index.js"
@@ -20,6 +22,9 @@
   },
   "homepage": "https://github.com/jamangueira7/web-api-node#readme",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.7",
+    "nyc": "^15.1.0",
+    "supertest": "^6.3.3"
   }
 }

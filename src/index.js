@@ -33,15 +33,15 @@ const routes = {
                 response.writeHead(201, DEFAULT_HEADER);
                 response.write(JSON.stringify({ success: 'User created with success!', id }));
                 return response.end();
+
             } catch (err) {
                 return handleError(response)(err);
             }
-
         }
     },
-    default:  (request, response) => {
-        response.write('hello!');
-        response.end();
+    default:  async (request, response) => {
+        response.write(JSON.stringify({ msg: 'Hello! Route does not exist!' }));
+        return response.end();
     }
 }
 
@@ -70,5 +70,7 @@ const handler = (request, response) => {
     return chosen(request, response).catch(handleError(response));
 }
 
-http.createServer(handler)
+const app = new  http.createServer(handler)
 .listen(PORT, () => console.log('server running at', PORT));
+
+module.exports = app;
