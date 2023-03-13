@@ -81,6 +81,21 @@ describe('API Suite test', () => {
             assert.deepStrictEqual(JSON.parse(response.error.text), expect);
         });
 
+        it('should request the create heroes JSON error', async () => {
+
+            const response = await request(app)
+                .post('/heroes')
+                .send("{a")
+                .expect(500);
+
+
+            const expect = {
+                "error":"Internal Server Error!!!"
+            };
+
+            assert.deepStrictEqual(JSON.parse(response.error.text), expect);
+        });
+
 
     });
 });

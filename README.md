@@ -29,14 +29,18 @@ Testes:
 ![img.png](.github%2Fimg.png)
 ![img_1.png](.github%2Fimg_1.png)
 ![img_2.png](.github%2Fimg_2.png)
+![img_3.png](.github%2Fimg_3.png)
 
 ## 🚀 Como Rodar
 
 - Clone o projeto.
+- Instalar o Jq: https://stedolan.github.io/jq/download/
 - npm install.
 - `npm run dev` para iniciar o projeto.
-- `npm test` para rodar os test simulados com bash.
-- Instalar o Jq: https://stedolan.github.io/jq/download/
+- `npm test` para rodar os test simulados com bash (manter a API rodando com o comando anterior).
+- `npm run test:cov` para rodar os test com a cobertura.
+- `npm run test:mocha` para rodar os test com a cobertura.
+
 
 ## ↗ Rotas
 
